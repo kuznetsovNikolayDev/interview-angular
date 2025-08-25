@@ -1,0 +1,1 @@
+export { MoviesListModule } from './movies-list.module';

@@ -1,0 +1,1 @@
+export { MoviesApiService } from './movies-api.service';

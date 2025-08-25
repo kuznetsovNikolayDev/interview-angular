@@ -1,0 +1,26 @@
+<ng-container *ngIf="movies$ | async as movies">
+  <app-add-movie
+    class="container-add-movie"
+    (addMovie)="add($event)"
+  ></app-add-movie>
+
+  <div class="container-actions">
+    <div class="container-search">
+      <input
+        [ngModel]="searchName$ | async"
+        (ngModelChange)="setSearchName($event)"
+        placeholder="Введите название фильма для поиска..."
+      />
+    </div>
+    <button (click)="updateStatusAllToOnline()" [disabled]="!movies.length">Сделать все онлайн</button>
+  </div>
+
+  <div class="container-movies">
+    <app-movie
+      *ngFor="let movie of movies; trackBy: trackById"
+      [movie]="movie"
+      (handleRemove)="remove(movie)"
+      (updateStatus)="updateStatus(movie, $event)"
+    ></app-movie>
+  </div>
+</ng-container>

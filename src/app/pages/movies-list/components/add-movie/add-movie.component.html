@@ -1,0 +1,5 @@
+<input
+  [(ngModel)]="movieName"
+  placeholder="Введите название фильма для добавления "
+/>
+<button [disabled]="!movieName" (click)="add()">+ Добавить</button>

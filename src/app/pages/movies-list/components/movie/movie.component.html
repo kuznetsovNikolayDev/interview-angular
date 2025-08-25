@@ -1,0 +1,14 @@
+<app-card>
+  <div card-header>{{ movie.name }}</div>
+  <div card-body>
+    Онлайн:
+    <input
+      type="checkbox"
+      [ngModel]="movie.isOnline"
+      (ngModelChange)="updateStatus.emit($event)"
+    />
+  </div>
+  <div card-actions>
+    <button (click)="handleRemove.emit()">Удалить</button>
+  </div>
+</app-card>
